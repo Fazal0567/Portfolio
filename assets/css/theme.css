@@ -1,33 +1,59 @@
 :root {
     /* Light theme variables */
-    --primary-color: #2ecc71;
+    --primary-color: #3498db;
     --bg-color: #ffffff;
     --text-color: #333333;
     --section-bg: #f8f9fa;
     --card-bg: #ffffff;
-    --shadow-color: rgba(0, 0, 0, 0.1);
     --header-bg: #ffffff;
+    --link-color: #2c3e50;
+    --paragraph-color: #666666;
+    --shadow-color: rgba(0, 0, 0, 0.1);
 }
 
 [data-theme="dark"] {
     /* Dark theme variables */
+    --primary-color: #3498db;
     --bg-color: #1a1a1a;
     --text-color: #ffffff;
     --section-bg: #2d2d2d;
     --card-bg: #333333;
-    --shadow-color: rgba(0, 0, 0, 0.3);
     --header-bg: #242424;
+    --link-color: #ecf0f1;
+    --paragraph-color: #cccccc;
+    --shadow-color: rgba(0, 0, 0, 0.3);
+}
+
+/* Apply theme colors */
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+}
+
+/* Text colors for different elements */
+h1, h2, h3, h4, h5, h6 {
+    color: var(--text-color);
+}
+
+p {
+    color: var(--paragraph-color);
+}
+
+a {
+    color: var(--link-color);
+}
+
+.nav-list a {
+    color: var(--text-color);
 }
 
 /* Theme toggle button styles */
 .theme-toggle {
-    position: relative;
-    margin-left: 20px;
-    z-index: 100;
+    margin: 0 20px;
 }
 
 #theme-toggle {
-    background: var(--card-bg);
+    background: transparent;
     border: 2px solid var(--primary-color);
     border-radius: 50%;
     width: 40px;
@@ -40,8 +66,7 @@
 }
 
 #theme-toggle:hover {
-    transform: scale(1.1);
-    box-shadow: 0 0 10px var(--shadow-color);
+    background: var(--primary-color);
 }
 
 #theme-toggle i {
@@ -50,46 +75,36 @@
     transition: all 0.3s ease;
 }
 
-/* Apply theme colors to elements */
-body {
-    background-color: var(--bg-color);
-    color: var(--text-color);
-    transition: background-color 0.3s, color 0.3s;
+#theme-toggle:hover i {
+    color: var(--bg-color);
 }
 
-#navbar {
-    background-color: var(--header-bg);
-    box-shadow: 0 2px 10px var(--shadow-color);
-}
-
+/* Section backgrounds */
 .section.bg-light {
     background-color: var(--section-bg);
 }
 
-.project-card, 
-.contact-info, 
+/* Cards and containers */
+.project-card,
+.contact-info,
 .contact-form,
 .education-item,
 .timeline-content {
     background-color: var(--card-bg);
-    box-shadow: 0 5px 15px var(--shadow-color);
-}
-
-/* Update text colors */
-h1, h2, h3, h4, .nav-list a {
     color: var(--text-color);
 }
 
-/* Ensure forms maintain readability */
-input, textarea {
+/* Form elements */
+input,
+textarea {
     background-color: var(--card-bg);
     color: var(--text-color);
-    border: 1px solid var(--text-color);
+    border: 1px solid var(--paragraph-color);
 }
 
-/* Smooth transitions for all themed elements */
+/* Smooth transitions */
 * {
-    transition: background-color 0.3s, color 0.3s, border-color 0.3s, box-shadow 0.3s;
+    transition: background-color 0.3s, color 0.3s, border-color 0.3s;
 }
 
 /* Make sure the toggle is visible in mobile view */

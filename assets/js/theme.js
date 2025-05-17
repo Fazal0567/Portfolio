@@ -3,12 +3,12 @@ document.addEventListener('DOMContentLoaded', () => {
     const icon = themeToggle.querySelector('i');
     const root = document.documentElement;
     
-    // Check for saved theme preference
+    // Check for saved theme
     const savedTheme = localStorage.getItem('theme') || 'light';
     root.setAttribute('data-theme', savedTheme);
     updateIcon(savedTheme);
 
-    // Toggle theme on button click
+    // Toggle theme
     themeToggle.addEventListener('click', () => {
         const currentTheme = root.getAttribute('data-theme');
         const newTheme = currentTheme === 'light' ? 'dark' : 'light';
@@ -19,6 +19,11 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     function updateIcon(theme) {
-        icon.className = theme === 'light' ? 'fas fa-moon' : 'fas fa-sun';
+        // Update icon based on theme
+        if (theme === 'dark') {
+            icon.className = 'fas fa-sun';
+        } else {
+            icon.className = 'fas fa-moon';
+        }
     }
 });
